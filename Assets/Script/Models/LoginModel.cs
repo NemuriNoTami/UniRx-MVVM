@@ -1,7 +1,7 @@
 using MvvmSample.Common.Result;
 using UniRx;
 
-namespace MvvmSample.Models.LoginModel
+namespace MvvmSample.Models.Login
 {
     public class LoginModel
     {
