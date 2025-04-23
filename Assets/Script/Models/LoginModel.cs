@@ -1,7 +1,7 @@
-using MvvmSample.Common;
+using MvvmSample.Common.Result;
 using UniRx;
 
-namespace MvvmSample.Models.LoginModel
+namespace MvvmSample.Models.Login
 {
     public class LoginModel
     {
@@ -9,15 +9,14 @@ namespace MvvmSample.Models.LoginModel
         private readonly string dummyEmail = "test@example.com";
         private readonly string dummyPassword = "password123";
 
-        public LoginResult Authenticate(string email, string password)
+        public Result<Unit> Authenticate(string email, string password)
         {
             if (email == dummyEmail && password == dummyPassword)
             {
-                return new LoginResult(true);
+                return Result<Unit>.Success(Unit.Default);
             }
 
-            return new LoginResult(false, "メールアドレスまたはパスワードが間違っています。");
+            return Result<Unit>.Failure("メールアドレスまたはパスワードが間違っています。");
         }
     }
 }
-
