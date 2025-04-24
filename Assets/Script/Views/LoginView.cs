@@ -18,6 +18,13 @@ namespace MvvmSample.View.Login
         [SerializeField] private TMP_InputField passwordInput;
         [Header("ボタン関連")]
         [SerializeField] private Button loginButton;
+
+        /// <summary>
+        /// パスワードのマスキングをon/offにする
+        /// </summary>
+        [SerializeField] private Button maskingOnButton;
+        [SerializeField] private Button maskingOffButton;
+
         [Header("テキスト関連")]
         [SerializeField] private TextMeshProUGUI errorText;
 
@@ -69,7 +76,7 @@ namespace MvvmSample.View.Login
             .Subscribe(_ =>
             {
                 // SceneManager.LoadScene(SceneName.Scene02_Success.ToString());
-            this.routerController.ChangeScene(SceneName.Scene02_Success);
+                this.routerController.ChangeScene(SceneName.Scene02_Success);
             })
             .AddTo(this);
 
@@ -79,6 +86,34 @@ namespace MvvmSample.View.Login
             .Subscribe(msg => errorText.text = msg)
             .AddTo(this);
 
+            // マスキングoffボタンのイベント登録
+            maskingOffButton.onClick.AddListener(OnClickMaskingOffButton);
+            
+            // マスキングonボタンのイベント登録
+            maskingOnButton.onClick.AddListener(OnClickMaskingOnButton);
+
+        }
+
+        /// <summary>
+        /// パスワードのマスキングをoffにする
+        /// </summary>
+        public void OnClickMaskingOffButton()
+        {
+            maskingOffButton.gameObject.SetActive(false);
+            maskingOnButton.gameObject.SetActive(true);
+            passwordInput.contentType = TMP_InputField.ContentType.Standard;
+            passwordInput.ForceLabelUpdate();
+        }
+
+        /// <summary>
+        /// パスワードのマスキングをonにする
+        /// </summary>
+        public void OnClickMaskingOnButton()
+        {
+            maskingOffButton.gameObject.SetActive(true);
+            maskingOnButton.gameObject.SetActive(false);
+            passwordInput.contentType = TMP_InputField.ContentType.Password;
+            passwordInput.ForceLabelUpdate();
         }
     }
 
