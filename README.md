@@ -1,12 +1,26 @@
-# 概要
+## リポジトリ概要
 リアクティブプログラミングの学習の一環として、UniRxを用いたMVVMアーキテクチャによるログイン画面の実装を行なったリポジトリです。
 
-<img width="407" alt="View" src="https://github.com/user-attachments/assets/eecf80f7-a16f-4c9b-9e84-067ed626e0f1" />
+<img width="413" alt="loginView" src="https://github.com/user-attachments/assets/652811dc-f3ff-4f3e-ae9b-e57e60b9622f" />
 
-# 想定動作
+## 画面構成
+- メールアドレス入力フィールド
+- パスワード入力フィールド
+- ログインボタン
+- バリデーションメッセージ
+
+## 想定動作
 モバイルアプリを想定して画面を作成していますが、リポジトリの本筋とは異なるため、Unity上で適当な画面サイズに設定して実行する前提で作成しました。
 私は、393x852の画面サイズで実行していました。
 
-# 使用技術
+以下を入力してログインする。
+
+メールアドレス：test@example.com
+
+パスワード：password123
+
+## ディレクトリ構成
+
+## 使用技術
 - Unity 2021.3.44f1
 - UniRx
