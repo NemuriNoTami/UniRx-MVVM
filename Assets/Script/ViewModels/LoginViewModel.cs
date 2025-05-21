@@ -33,7 +33,7 @@ namespace MvvmSample.ViewModel.Login
         {
             // 入力値の変更を購読してログインボタンの状態を判定
             CanLogin = email.CombineLatest(password, (e, p) =>
-            IsValidEmai(e) && IsValidPassword(p)
+            IsValidEmail(e) && IsValidPassword(p)
             )
             .ToReactiveProperty();
 
@@ -78,7 +78,7 @@ namespace MvvmSample.ViewModel.Login
 
 
         // バリデーションチェック
-        private bool IsValidEmai(string email)
+        private bool IsValidEmail(string email)
         {
             return !string.IsNullOrEmpty(email) && email.Contains("@");
         }
