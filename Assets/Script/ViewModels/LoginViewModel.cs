@@ -36,7 +36,6 @@ namespace MvvmSample.ViewModel.Login
             IsValidEmail(e) && IsValidPassword(p)
             )
             .ToReactiveProperty();
-
         }
 
         /// <summary>
@@ -67,15 +66,12 @@ namespace MvvmSample.ViewModel.Login
                 ErrorMessage.Value = string.Empty;
                 loginSuccessSubject.OnNext(Unit.Default);
                 Debug.Log("ログイン成功");
-
             }
             else
             {
                 ErrorMessage.Value = "メールアドレスまたはパスワードが正しくありません。";
-
             }
         }
-
 
         // バリデーションチェック
         private bool IsValidEmail(string email)
@@ -90,4 +86,3 @@ namespace MvvmSample.ViewModel.Login
 
     }
 }
-

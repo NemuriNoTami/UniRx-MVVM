@@ -80,7 +80,6 @@ namespace MvvmSample.View.Login
             })
             .AddTo(this);
 
-
             // エラーメッセージの表示
             viewModel.ErrorMessage
             .Subscribe(msg => errorText.text = msg)
@@ -91,7 +90,6 @@ namespace MvvmSample.View.Login
             
             // マスキングonボタンのイベント登録
             maskingOnButton.onClick.AddListener(OnClickMaskingOnButton);
-
         }
 
         /// <summary>
@@ -116,5 +114,4 @@ namespace MvvmSample.View.Login
             passwordInput.ForceLabelUpdate();
         }
     }
-
 }
